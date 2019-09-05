@@ -1,0 +1,13 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(Kanit-Regular.woff);
+}
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* background-image: linear-gradient(to right, #766957,white,#766957);  */
+  /* overflow-x: hidden; */
+  font-family: myFirstFont;
+}
