@@ -14,7 +14,8 @@
   <script src="assets/js/bootstrap/bootstrap.min.js"></script>
   <script src="assets/js/fontawesome/all.min.js"></script>
   <script src="assets/js/swiper/swiper.min.js"></script>
-  
+  <script src="https://unpkg.com/scrollreveal"></script>
+
 </head>
 <body>
 
@@ -23,7 +24,7 @@
     <div class="center-vertical">
         <div class="row">
           <div class="col-lg-8 text-center">
-              <div class="random">
+              <div class="random movein1">
                   <span class="nbr ltr">0</span>
                   <span class="nbr ltr">0</span>
                   <span class="nbr ltr">0</span>
@@ -42,38 +43,49 @@
           </div>
           <div class="col-lg-4 text-center mt-5 pt-4">
             <!-- <p>Contact And Share</p> -->
-            <a href=""><i class="fab fa-facebook fa-4x"></i></a>
-            <a href=""><i class="fab fa-github fa-4x"></i></a>
+            <a href="" class="headline"><i class="fab fa-facebook fa-4x" class="movein1"></i></a>
+            <a href="" class="headline"><i class="fab fa-github fa-4x" class="movein1"></i></a>
           </div>
         </div>
     </div>
 
   </section>
 
+  <section class="section section2">
+    <div class="row">
+      <div class="col-sm-4">
+        
+      </div>
+      <div class="col-sm-8">
+
+      </div>
+    </div>
+  </section>
+
 </body>
 
   <script>
-  $(document).ready(function() {
-     var $randomnbr = $('.nbr');
-     var $timer = 25;
-     var $it;
-     var $data = 0;
-     var index;
-     var change;
-     var letters = ["P", "R", "A", "M", "O", "T", "E" ,"P" ,"H" ,"A" ,"N" ,"-" ,"O" ,"N"];
+    $(document).ready(function() {
+      var $randomnbr = $('.nbr');
+      var $timer = 25;
+      var $it;
+      var $data = 0;
+      var index;
+      var change;
+      var letters = ["P", "R", "A", "M", "O", "T", "E" ,"P" ,"H" ,"A" ,"N" ,"-" ,"O" ,"N"];
 
-     $randomnbr.each(function() {
-     change = Math.round(Math.random()*100);
-     $(this).attr('data-change', change);
-     });
+      $randomnbr.each(function() {
+      change = Math.round(Math.random()*100);
+      $(this).attr('data-change', change);
+      });
 
-     function random() {
-          return Math.round(Math.random()*9);
-     };
+      function random() {
+            return Math.round(Math.random()*9);
+      };
 
-     function select() {
-          return Math.round(Math.random()*$randomnbr.length+1);
-     };
+      function select() {
+            return Math.round(Math.random()*$randomnbr.length+1);
+    };
 
      function value() {
           $('.nbr:nth-child('+select()+')').html(''+random()+'');
@@ -90,5 +102,15 @@
 
      $it = setInterval(value, $timer);
      });
+     
+    //  Effect Animation
+    ScrollReveal({ reset: true });
+    ScrollReveal().reveal('.headline');
+    ScrollReveal().reveal('.move-in', { duration: 1500,distance: '50px' });
+    // ScrollReveal().reveal('.section1', { duration: 2000,distance: '50px' });
+    ScrollReveal().reveal('.movein1', { duration: 1500,distance: '-100px' });
+    ScrollReveal().reveal('.movein2', { duration: 1500,delay: 500,distance: '150px' });
+    ScrollReveal().reveal('.movein-left', { duration: 1500,distance: '100px',origin: 'left' });
+    ScrollReveal().reveal('.movein-right', { duration: 1500,distance: '100px',origin: 'right' });
   </script>
 </html>

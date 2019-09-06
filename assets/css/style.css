@@ -25,6 +25,9 @@ html, body{
   height: auto;
   position: relative;
 }
+/* 
+  SECTION1
+*/
 .section.section1{
   height: 100vh;
   /* background-color: #cccccc; */
@@ -53,4 +56,13 @@ html, body{
 }
 .section.section1 a:nth-last-child(1){
   margin-left: 25px;
+}
+
+/* 
+  SECTION2
+*/
+.section.section2{
+  height: 100vh;
+  background-color: #000;
+  display: block;
 }
