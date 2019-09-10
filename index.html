@@ -20,7 +20,8 @@
 <body>
 
   <section class="section section1">
-    <!-- <div class="bg-overray"></div> -->
+    <div class="bg-image"></div>
+    <div class="bg-overray"></div>
     <div class="center-vertical">
         <div class="row">
           <div class="col-lg-8 text-center">
@@ -53,7 +54,18 @@
 
   <section class="section section2">
     <div class="container">
-        <h1>Hi</h1>
+      <div class="text-center">
+          <div class="circular-landscape">
+              <img src="assets/images/profile.jpg" alt="">
+            </div>
+      </div>
+        <h1>Pramote Phan-on (Plug)</h1>
+        <h3>23 November 1994</h3>
+        <h3>FULL STACK WEB DEVELOPER</h3>
+            <!-- <h3>23 November 1994</h3>
+            <h3>Sex : Male</h3>
+            <h3>Religion : Buddhism</h3>
+            <h3>Nationality : Thai</h3> -->
     </div>
   </section>
 
@@ -81,7 +93,7 @@
       function select() {
             return Math.round(Math.random()*$randomnbr.length+1);
     };
-
+    
      function value() {
           $('.nbr:nth-child('+select()+')').html(''+random()+'');
           $('.nbr:nth-child('+select()+')').attr('data-number', $data);
