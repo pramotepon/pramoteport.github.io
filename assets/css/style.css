@@ -24,6 +24,7 @@ html, body{
   width: 100%;
   height: auto;
   position: relative;
+  overflow: hidden;
 }
 /* 
   SECTION1

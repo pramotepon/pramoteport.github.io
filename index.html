@@ -16,6 +16,22 @@
   <script src="assets/js/swiper/swiper.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
 
+  <script>
+  var token = '1a4d6554483d4be1a07fff8d939da89a',
+    container2 = document.getElementById( 'rudr_userinfo' ),
+    scrElement2 = document.createElement( 'script' );
+ 
+    window.mishaProcessResult2 = function( response ) {
+      container2.innerHTML = '<div><p><img src="' + response.data.profile_picture + '"></p></div>'
+        + '<div><h1>' + response.data.username + '</h1>'
+        + '<p>#' + response.data.id + '</p>'
+        + '<p>' + response.data.counts.media + ' media ' + response.data.counts.followed_by + ' followers ' + response.data.counts.follows + ' follows</p>'
+        + '<p><strong>' + response.data.full_name + '</strong> ' + response.data.bio + '<a href="' + response.data.website + '">' + response.data.website + '</a></p></div>';
+    }
+    
+    scrElement2.setAttribute( 'src', 'https://api.instagram.com/v1/users/self?access_token=' + token + '&callback=mishaProcessResult2' );
+    document.body.appendChild( scrElement2 );
+  </script>
 </head>
 <body>
 
@@ -72,34 +88,44 @@
       <div class="col-md-2 movein2">
         <a href="">
           <i class="fab fa-facebook-square fa-3x"></i>
+          <p>Pramote phan-on</p>
         </a>
       </div>
       <div class="col-md-2 movein3">
         <a href="">
           <i class="fab fa-line fa-3x"></i>
+          <p>089-114-9400</p>
         </a>
       </div>
       <div class="col-md-2 movein4">
         <a href="">
           <i class="fas fa-phone-square fa-3x"></i>
+          <p>089-114-9400</p>
         </a>
       </div>
       <div class="col-md-2 movein5">
         <a href="">
           <i class="fab fa-instagram fa-3x"></i>
+          <p>pramote__phan_on</p>
         </a>
       </div>
       <div class="col-md-2 movein6">
         <a href="">
           <i class="fas fa-envelope fa-3x"></i>
+          pramote.p@gmail.com
         </a>
       </div>
       <div class="col-md-2 movein7">
         <a href="">
           <i class="fab fa-github-square fa-3x"></i>
+          <p>https://github.com/pramotepon</p>
         </a>
       </div>
     </div>
+  </section>
+
+  <section class="section section3">
+    <ul id="rudr_userinfo"></ul>
   </section>
 
 </body>
