@@ -113,3 +113,28 @@ html, body{
   /* height: 100%; */
   /* margin-left: -50px; */
 }
+
+/* SECTION 3 */
+.section.section3{
+  background-color: #000;
+}
+.section.section3 h1{
+  margin:10px;
+  font-weight: bold;
+  color: #E8E8E8;
+  text-shadow: 0px 0px 20px #fff;
+}
+
+#rudr_instafeed{
+  list-style:none;
+}
+#rudr_instafeed li{
+  float:left;
+  width:230px;
+  height:230px;
+  margin:10px
+}
+#rudr_instafeed li img{
+  max-width:100%;
+  max-height:100%;
+}

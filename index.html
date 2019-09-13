@@ -9,28 +9,36 @@
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/fontawesome/all.min.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/swiper/swiper.min.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
   <script src="assets/js/jquery/jquery3-3-1.min.js"></script>
   <script src="assets/js/bootstrap/bootstrap.min.js"></script>
   <script src="assets/js/fontawesome/all.min.js"></script>
   <script src="assets/js/swiper/swiper.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>  
 
   <script>
-  var token = '6804613599.0514ddc.575b6c66d49a4bd7bd7cf7fdc926d138',
-    container2 = document.getElementById( 'rudr_userinfo' ),
-    scrElement2 = document.createElement( 'script' );
+    // 6804613599.0514ddc.575b6c66d49a4bd7bd7cf7fdc926d138
+    var userid = '6804613599';
+    var token = '6804613599.0514ddc.575b6c66d49a4bd7bd7cf7fdc926d138',
+    num_photos = 10;
  
-    window.mishaProcessResult2 = function( response ) {
-      container2.innerHTML = '<div><p><img src="' + response.data.profile_picture + '"></p></div>'
-        + '<div><h1>' + response.data.username + '</h1>'
-        + '<p>#' + response.data.id + '</p>'
-        + '<p>' + response.data.counts.media + ' media ' + response.data.counts.followed_by + ' followers ' + response.data.counts.follows + ' follows</p>'
-        + '<p><strong>' + response.data.full_name + '</strong> ' + response.data.bio + '<a href="' + response.data.website + '">' + response.data.website + '</a></p></div>';
-    }
-    
-    scrElement2.setAttribute( 'src', 'https://api.instagram.com/v1/users/self?access_token=' + token + '&callback=mishaProcessResult2' );
-    document.body.appendChild( scrElement2 );
+$.ajax({
+	url: 'https://api.instagram.com/v1/users/' + userid + '/media/recent', // or /users/self/media/recent for Sandbox
+	dataType: 'jsonp',
+	type: 'GET',
+	data: {access_token: token, count: num_photos},
+	success: function(data){
+ 		console.log(data);
+		for( x in data.data ){
+			$('ul').append('<a data-fancybox="gallery" href="'+data.data[x].images.standard_resolution.url+'">'+'<li><img src="'+data.data[x].images.standard_resolution.url+'"></li></a>');
+		}
+	},
+	error: function(data){
+		console.log(data);
+	}
+});
   </script>
 </head>
 <body>
@@ -124,9 +132,16 @@
     </div>
   </section>
 
-  
-    <ul id="rudr_userinfo"></ul>
-  
+  <section class="section section3">
+    <h1>INSTAGRAM</h1>
+      <!-- <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> -->
+              <ul id="rudr_instafeed"></ul>
+            <!-- </div>
+          </div>
+        </div> -->
+  </section>  
 
 </body>
 
@@ -176,14 +191,55 @@
     // ScrollReveal().reveal('.section1', { duration: 2000,distance: '50px' });
 
     ScrollReveal().reveal('.movein1', { duration: 1500,distance: '-100px' });
-    ScrollReveal().reveal('.movein2', { duration: 1000,delay: 500,distance: '150px' });
-    ScrollReveal().reveal('.movein3', { duration: 1500,delay: 500,distance: '150px' });
-    ScrollReveal().reveal('.movein4', { duration: 2000,delay: 500,distance: '150px' });
-    ScrollReveal().reveal('.movein5', { duration: 2500,delay: 500,distance: '150px' });
-    ScrollReveal().reveal('.movein6', { duration: 3000,delay: 500,distance: '150px' });
-    ScrollReveal().reveal('.movein7', { duration: 3500,delay: 500,distance: '150px' });
+    ScrollReveal().reveal('.movein2', { duration: 1000,delay: 0,distance: '250px' });
+    ScrollReveal().reveal('.movein3', { duration: 1500,delay: 0,distance: '250px' });
+    ScrollReveal().reveal('.movein4', { duration: 2000,delay: 0,distance: '250px' });
+    ScrollReveal().reveal('.movein5', { duration: 2500,delay: 0,distance: '250px' });
+    ScrollReveal().reveal('.movein6', { duration: 3000,delay: 0,distance: '250px' });
+    ScrollReveal().reveal('.movein7', { duration: 3500,delay: 0,distance: '250px' });
 
     ScrollReveal().reveal('.movein-left', { duration: 1500,distance: '100px',origin: 'left' });
     ScrollReveal().reveal('.movein-right', { duration: 1500,distance: '100px',origin: 'right' });
+
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        // 1024: {
+        //   slidesPerView: 4,
+        //   spaceBetween: 40,
+        //   // slidesPerGroup: 4
+        // },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          // slidesPerGroup: 4
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+          // slidesPerGroup: 4
+        },
+        525: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+          // slidesPerGroup: 4
+        }
+      }
+    });
   </script>
 </html>
