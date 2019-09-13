@@ -32,7 +32,7 @@ $.ajax({
 	success: function(data){
  		console.log(data);
 		for( x in data.data ){
-			$('ul').append('<a data-fancybox="gallery" href="'+data.data[x].images.standard_resolution.url+'">'+'<li><img src="'+data.data[x].images.standard_resolution.url+'"></li></a>');
+			$('ul').append('<li><a data-fancybox="gallery" href="'+data.data[x].images.standard_resolution.url+'">'+'<img src="'+data.data[x].images.standard_resolution.url+'"></a></li>');
 		}
 	},
 	error: function(data){
@@ -134,13 +134,9 @@ $.ajax({
 
   <section class="section section3">
     <h1>INSTAGRAM</h1>
-      <!-- <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"> -->
+
               <ul id="rudr_instafeed"></ul>
-            <!-- </div>
-          </div>
-        </div> -->
+
   </section>  
 
 </body>
