@@ -17,29 +17,6 @@
   <script src="assets/js/swiper/swiper.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>  
-
-  <script>
-    // 6804613599.0514ddc.575b6c66d49a4bd7bd7cf7fdc926d138
-    var userid = '6804613599';
-    var token = '6804613599.0514ddc.575b6c66d49a4bd7bd7cf7fdc926d138',
-    num_photos = 10;
- 
-$.ajax({
-	url: 'https://api.instagram.com/v1/users/' + userid + '/media/recent', // or /users/self/media/recent for Sandbox
-	dataType: 'jsonp',
-	type: 'GET',
-	data: {access_token: token, count: num_photos},
-	success: function(data){
- 		console.log(data);
-		for( x in data.data ){
-			$('ul').append('<li><a data-fancybox="gallery" href="'+data.data[x].images.standard_resolution.url+'">'+'<img src="'+data.data[x].images.standard_resolution.url+'"></a></li>');
-		}
-	},
-	error: function(data){
-		console.log(data);
-	}
-});
-  </script>
 </head>
 <body>
 
@@ -133,10 +110,8 @@ $.ajax({
   </section>
 
   <section class="section section3">
-    <h1>INSTAGRAM</h1>
-
-              <ul id="rudr_instafeed"></ul>
-
+    <h1>Skill</h1>
+    
   </section>  
 
 </body>
