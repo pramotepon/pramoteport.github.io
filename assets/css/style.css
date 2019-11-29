@@ -144,6 +144,12 @@ html, body{
   color: #E8E8E8;
   text-shadow: 0px 0px 20px #fff;
 }
+.section.section3 h3{
+  color: #fff;
+}
+.section.section3 h4{
+  color: #fff;
+}
 
 #rudr_instafeed{
   list-style:none;
