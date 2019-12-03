@@ -533,7 +533,11 @@ html, body{
     }
 
 }
-
+@media screen and (max-width: 600px) {
+  .section.section1 .random{
+    font-size: 30px;
+  }
+}
 /* asdasdasd */
 #rudr_instafeed{
   list-style:none;
