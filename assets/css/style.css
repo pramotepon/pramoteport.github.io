@@ -34,12 +34,9 @@ html, body{
 .row{
   margin: 0;
 }
-/* .bg-overray{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-} */
+/* Progress Bar */
+
+/* /Progress Bar */
 .section{
   width: 100%;
   height: auto;
@@ -51,8 +48,7 @@ html, body{
 */
 .section.section1{
   height: 100vh;
-  /* cyber-3400789_1280.jpg */
-  /* background-color: #1C1C1C; */
+
 }
 .section.section1 .bg-image{
   background-position: center;
